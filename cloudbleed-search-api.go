@@ -82,8 +82,7 @@ func main() {
 
 		res, err := el.Search().
 			Index("domains").
-			Query(elastic.NewTermQuery("domain", q)).
-			Sort("domain", true).
+			Query(elastic.NewQueryStringQuery(q)).
 			From(0).Size(10).
 			Do(ectx)
 		if err != nil {

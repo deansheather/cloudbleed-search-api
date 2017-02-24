@@ -1,0 +1,25 @@
+input {
+      file {
+          path => ["/import.txt"]
+		  type => "cloudbleed_domain"
+          start_position => "beginning"
+      }
+}
+
+filter {
+    csv {
+        columns => ["domain"]
+        separator => "   "
+		skip_empty_columns => true
+        remove_field => [ "host", "message", "path" ]
+    }
+}
+
+output {
+    elasticsearch {
+        action => "index"
+		document_type => "cloudbleed_domain"
+        hosts => "http://localhost:9200"
+        index => "domains"
+    }
+}
