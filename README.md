@@ -8,7 +8,7 @@ Public instance: https://cloudbleed-api.whats-th.is (running under CloudFlare
 ### Usage
 1. Launch Elasticsearch and make the `domains` index (see below)
 2. Add your data  (see `import-data.go`)
-3. Build `cloudbleed.go`
+3. Build `cloudbleed-search-api.go`
 4. Run (use environment variables `PORT` and `ELASTIC_ENDPOINT` to change
    default config variables)
 5. Enjoy
