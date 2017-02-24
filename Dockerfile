@@ -6,6 +6,7 @@ RUN mkdir /app
 ADD . /app/
 WORKDIR /app
 
+RUN apk update && apk add git
 RUN go get github.com/satori/go.uuid
 RUN go get github.com/Sirupsen/logrus
 RUN go get gopkg.in/kataras/iris.v6
